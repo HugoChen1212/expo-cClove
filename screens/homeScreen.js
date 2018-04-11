@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Button } from 'react-native';
 import HomeImgs from '../components/homePage/homeImg.js';
 
 
@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
 });
 
 
+
 class HomeScreen extends Component {
 
   render() {
@@ -18,6 +19,7 @@ class HomeScreen extends Component {
         <HomeImgs />
         <Text>HomeScreen</Text>
         <Text>HomeScreen</Text>
+
       </View>
       )
   }
