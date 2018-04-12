@@ -3,12 +3,16 @@ import { StyleSheet, Text, View } from 'react-native';
 import MainApp  from './config/index';
 import { Provider } from 'react-redux';
 import store from './store';
+// import { createStore } from 'redux';
+// import reducer from './store/reducer';
+
+// const store = createStore(reducer);
 
 export default class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-      <MainApp />
+        <MainApp />
       </Provider>
     );
   }
