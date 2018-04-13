@@ -6,7 +6,7 @@ class MyCard extends Component {
 
     renderCards() {
       return this.props.pets.map((pet, index) => {
-        return this.props.renderPet(pet, index);
+        return this.props.renderPet(pet, index,this.props.favorHandeler);
       });
     }
 

@@ -24,6 +24,8 @@ class FavorScreen extends Component {
 }
 
   render() {
+    let pet = this.props.navigation.state.params;
+    console.log(pet);
     return (
       <View>
         <Text>FavorScreen</Text>

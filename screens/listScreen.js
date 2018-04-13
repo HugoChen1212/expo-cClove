@@ -6,7 +6,12 @@ import MyCard from '../components/card'
 
 class ListScreen extends Component {
 
-    renderPet(pet, index) {
+   favorHandeler = () => {
+
+    this.props.navigation.navigate('Favor');
+  }
+
+    renderPet(pet, index, favorHandeler) {
 
       let petName = pet.name.$t;
       let petAge = pet.age.$t;
@@ -41,6 +46,7 @@ class ListScreen extends Component {
             backgroundColor='#03A9F4'
             title='Like!'
             style={styles.buttonStyle}
+            onPress={favorHandeler}
           />
           </View>
         </Card>
@@ -63,6 +69,7 @@ class ListScreen extends Component {
       <ScrollView>
        <MyCard pets={pets}
         renderPet={this.renderPet}
+        favorHandeler={this.favorHandeler}
         />
       </ScrollView>
       )
