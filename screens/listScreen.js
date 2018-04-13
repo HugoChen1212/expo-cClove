@@ -4,9 +4,7 @@ import { Card, Button } from 'react-native-elements';
 import MyCard from '../components/card'
 
 
-
 class ListScreen extends Component {
-
 
     renderPet(pet, index) {
 
@@ -26,10 +24,24 @@ class ListScreen extends Component {
           title={petName}
           image={{ uri:petUri }}
         >
-        <View style={{flexDirection: 'row'}}>
-          <Text>Age: {petAge}</Text>
-          <Text>Sex: {petSex}</Text>
-          <Text>Size: {petSize}</Text>
+        <View style={styles.row}>
+          <Text style={styles.textSize}>Age: {petAge}</Text>
+          <Text style={styles.textSize}>Sex: {petSex}</Text>
+          <Text style={styles.textSize}>Size: {petSize}</Text>
+          </View>
+          <View style={styles.row}>
+          <Button
+            icon={{name: 'zoom-in', type: 'foundation'}}
+            backgroundColor='#03A9F4'
+            title='Details'
+            style={styles.buttonStyle}
+          />
+          <Button
+            icon={{name: 'thumbsup', type: 'octicon'}}
+            backgroundColor='#03A9F4'
+            title='Like!'
+            style={styles.buttonStyle}
+          />
           </View>
         </Card>
       </View>
@@ -57,5 +69,21 @@ class ListScreen extends Component {
 
   }
 }
+
+
+  const styles = {
+    row: {
+      flexDirection: 'row',
+      justifyContent: 'space-around'
+    },
+    buttonStyle: {
+      width: 140,
+      height: 80,
+      padding: 10,
+      marginTop: 5
+    },textSize: {
+      fontSize: 16
+    }
+  }
 
 export default ListScreen;
