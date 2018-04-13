@@ -28,7 +28,6 @@ class FavorScreen extends Component {
       <View>
         <Text>FavorScreen</Text>
         <Text>FavorScreen</Text>
-        <Text>FavorScreen</Text>
       </View>
       )
   }

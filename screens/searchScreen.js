@@ -13,22 +13,33 @@ constructor(props){
       animal: 'dog',
       sex: '',
       location: '',
-      format: 'json'
+      format: 'json',
+      results: []
     };
 }
 
 
+
+
    dogSearcher =() => {
     axios.get('http://api.petfinder.com/pet.find?key=dbeaf4be86fcf7cfe093d67eef6689b7&animal='+this.state.animal+'&location='+this.state.location+'&sex='+this.state.sex+'&format='+this.state.format).then( response => {
-      console.log(response);
+      this.setState({
+        results: response.data.petfinder.pets
+      }
+      //,() => console.log(this.state.results)
+      );
+
+      //console.log(response.data.petfinder.pets);
         this.onListHandeler();
+
      }).catch(error => {
         console.log(error);
      });
   }
 
  onListHandeler = () => {
-    this.props.navigation.navigate('List');
+    this.props.navigation.navigate('List', {results: this.state.results
+    });
   }
 
   render() {
@@ -64,7 +75,6 @@ constructor(props){
   }, {
     value: 'M'
   }];
-
 
 
     return (
