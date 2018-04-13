@@ -15,14 +15,14 @@ class WelcomeScreen extends Component {
     this.props.navigation.navigate('Auth');
   }
 
-   componentDidMount() {
-    axios.get().then( response => {
-      console.log(response);
-     }).catch(error => {
-        console.log(error);
-     });
+  //  componentDidMount() {
+  //   axios.get().then( response => {
+  //     console.log(response);
+  //    }).catch(error => {
+  //       console.log(error);
+  //    });
 
-  }
+  // }
 
 
   render() {
