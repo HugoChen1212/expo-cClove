@@ -19,6 +19,8 @@ constructor(props){
 }
 
 
+
+
    dogSearcher =() => {
     axios.get('http://api.petfinder.com/pet.find?key=dbeaf4be86fcf7cfe093d67eef6689b7&animal='+this.state.animal+'&location='+this.state.location+'&sex='+this.state.sex+'&format='+this.state.format).then( response => {
       this.setState({
