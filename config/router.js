@@ -8,6 +8,7 @@ import Welcome from '../screens/welcomeScreen';
 import Setting from '../screens/settingScreen';
 import Auth from '../screens/authScreen';
 import List from '../screens/listScreen';
+import ListDetails from '../screens/listDetailsScreen'
 
 
 
@@ -36,8 +37,10 @@ import List from '../screens/listScreen';
       navigationOptions:{
         title: 'Search'}
     },
-    List: {screen: List }
+    List: {screen: List },
+    ListDetails: {screen: ListDetails}
   });
+
 
   export const MainNavigator = TabNavigator({
     Welcome: { screen: Welcome},

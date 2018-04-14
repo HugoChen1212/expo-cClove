@@ -2,11 +2,10 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import MainApp  from './config/index';
 import { Provider } from 'react-redux';
-import store from './store';
-// import { createStore } from 'redux';
-// import reducer from './store/reducer';
+import { createStore } from 'redux';
+import { petReducer } from './reducers/likeReducer';
 
-// const store = createStore(reducer);
+const store = createStore(petReducer);
 
 export default class App extends React.Component {
   render() {
