@@ -5,12 +5,13 @@ const initialState = {
 }
 
 export const petReducer = (state = initialState, action) => {
-  if (action.type == 'like_pet'){
+  if (action.type === 'like_pet'){
     return {
+      ...state,
      likes: state.likes
     }
   }
-  if (action.type == 'detail_pet'){
+  if (action.type === 'detail_pet'){
     return {
      detail: state.detail
     }
