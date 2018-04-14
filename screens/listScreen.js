@@ -2,16 +2,21 @@ import React, { Component } from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import { Card, Button } from 'react-native-elements';
 import MyCard from '../components/card'
+import { connect } from 'react-redux';
 
 
 class ListScreen extends Component {
 
-   favorHandeler = () => {
+  // favorHandeler = (pet) => {
+  //     console.log(pet);
+  //     this.props.likes.push(pet);
 
-    this.props.navigation.navigate('Favor');
-  }
+  //   this.props.navigation.navigate('Favor');
+  // }
 
-    renderPet(pet, index, favorHandeler) {
+
+
+    renderPet(pet, index, detailsHandeler, likes, navigate, detail) {
 
       let petName = pet.name.$t;
       let petAge = pet.age.$t;
@@ -22,6 +27,19 @@ class ListScreen extends Component {
       let petUri = JSON.stringify(Media)!=='{}' ?
          pet.media.photos.photo[2].$t :
         'http://photos.petfinder.com/photos/pets/33754516/1/?bust=1447200763&width=500&-x.jpg'
+
+        favorHandeler = () => {
+         // console.log(pet);
+          likes.push(pet);
+          console.log(likes);
+          navigate.navigate('Favor');
+        }
+
+
+      detailsHandeler = () => {
+          console.log(pet);
+        navigate.navigate('Favor');
+        }
 
     return (
       <View key={index}>
@@ -40,6 +58,7 @@ class ListScreen extends Component {
             backgroundColor='#03A9F4'
             title='Details'
             style={styles.buttonStyle}
+            onPress={this.detailsHandeler}
           />
           <Button
             icon={{name: 'thumbsup', type: 'octicon'}}
@@ -69,7 +88,10 @@ class ListScreen extends Component {
       <ScrollView>
        <MyCard pets={pets}
         renderPet={this.renderPet}
-        favorHandeler={this.favorHandeler}
+        detailsHandeler={this.detailsHandeler}
+        likes={this.props.likes}
+        navigate={this.props.navigation}
+        detail={this.props.detail}
         />
       </ScrollView>
       )
@@ -93,4 +115,11 @@ class ListScreen extends Component {
     }
   }
 
-export default ListScreen;
+  const petStateToProps = state => {
+  return {
+    likes: state.likes,
+    detail: state.detail
+  }
+}
+
+export default connect(petStateToProps)(ListScreen);
