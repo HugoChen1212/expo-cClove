@@ -18,7 +18,9 @@ constructor(props){
     };
 }
 
-
+  favorites =()=> {
+      this.props.navigation.navigate('Favor');
+  }
 
 
    dogSearcher =() => {
@@ -78,7 +80,6 @@ constructor(props){
 
 
     return (
-      <ScrollView>
         <View style={styles.formContainer}>
 
          <View style={styles.locationContainer}>
@@ -98,7 +99,9 @@ constructor(props){
                   placeholder="Enter You Zipcode" onChangeText={(location) => this.setState({location})} />
             </View>
           </View>
-            <View style={styles.dropdownStyle}>
+
+        <View style={{marginBottom: 15}}>
+          <View style={styles.dropdownStyle}>
               <Dropdown
               label='Select Animal'
               data={animalData}
@@ -121,17 +124,18 @@ constructor(props){
                 onChangeText={(value, index, data) => this.setState({sex:value})}
                 />
           </View>
+        </View>
 
+        <View style={{marginBottom: 30}}>
             <View style={styles.buttonStyle}>
                 <Button title="Submit" color="#74F363" onPress={() => this.dogSearcher()} />
             </View>
 
             <View style={styles.buttonStyle}>
-                <Button title="View Favorites" color="#74F363" onPress={() => Actions.favorites()}/>
+                <Button title="View Favorites" color="#74F363" onPress={this.favorites}/>
             </View>
         </View>
-
-      </ScrollView>
+        </View>
       )
   }
 }

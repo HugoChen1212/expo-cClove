@@ -11,7 +11,7 @@ class FavorScreen extends Component {
 
   static navigationOptions = ({navigation}) => {
     return {
-    title: 'Favor',
+    title: 'Favorites',
       headerRight:
       <Button
         title="Setting"
