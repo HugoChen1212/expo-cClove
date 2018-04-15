@@ -98,27 +98,29 @@ constructor(props){
                   placeholder="Enter You Zipcode" onChangeText={(location) => this.setState({location})} />
             </View>
           </View>
-
+            <View style={styles.dropdownStyle}>
               <Dropdown
               label='Select Animal'
               data={animalData}
               onChangeText={(value, index, data) => this.setState({animal:value})}
               />
+          </View>
 
-
-
+          <View style={styles.dropdownStyle}>
              <Dropdown
               label='Select Age'
               data={ageData}
               onChangeText={(value, index, data) => this.setState({age:value})}
               />
+          </View>
 
-
+          <View style={styles.dropdownStyle}>
                <Dropdown
                 label='Select Sex'
                 data={sexData}
                 onChangeText={(value, index, data) => this.setState({sex:value})}
                 />
+          </View>
 
             <View style={styles.buttonStyle}>
                 <Button title="Submit" color="#74F363" onPress={() => this.dogSearcher()} />
@@ -170,6 +172,10 @@ const styles = {
   },
   textStyle: {
     height: 50
+  },
+  dropdownStyle: {
+    borderBottomColor: '#e6e6e6',
+    borderBottomWidth: 2
   }
   }
 
