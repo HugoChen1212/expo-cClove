@@ -8,7 +8,6 @@ const styles = StyleSheet.create({
     height: 250
   },
   imgContainer:{
-    flex:1,
     alignItems: 'center'
   }
 });
