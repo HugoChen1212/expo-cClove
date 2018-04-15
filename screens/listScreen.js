@@ -25,7 +25,7 @@ class ListScreen extends Component {
 
       let Media = pet.media;
       let petUri = JSON.stringify(Media)!=='{}' ?
-         pet.media.photos.photo[2].$t :
+         pet.media.photos.photo[3].$t :
         'http://photos.petfinder.com/photos/pets/33754516/1/?bust=1447200763&width=500&-x.jpg'
 
         favorHandeler = () => {
@@ -46,6 +46,7 @@ class ListScreen extends Component {
         <Card
           title={petName}
           image={{ uri:petUri }}
+          imageStyle={styles.imageStyles}
         >
         <View style={styles.row}>
           <Text style={styles.textSize}>Age: {petAge}</Text>
@@ -103,7 +104,8 @@ class ListScreen extends Component {
   const styles = {
     row: {
       flexDirection: 'row',
-      justifyContent: 'space-around'
+      justifyContent: 'space-around',
+      marginBottom: 5
     },
     buttonStyle: {
       width: 140,
@@ -112,6 +114,8 @@ class ListScreen extends Component {
       marginTop: 5
     },textSize: {
       fontSize: 16
+    },imageStyles: {
+      height: 350
     }
   }
 
