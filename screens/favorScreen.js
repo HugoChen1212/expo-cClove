@@ -34,7 +34,7 @@ class FavorScreen extends Component {
         let petSize = pet.size.$t;
         let Media = pet.media;
         let petUri = JSON.stringify(Media)!=='{}' ?
-         pet.media.photos.photo[2].$t :
+         pet.media.photos.photo[3].$t :
         'http://photos.petfinder.com/photos/pets/33754516/1/?bust=1447200763&width=500&-x.jpg'
 
         return(
