@@ -47,8 +47,8 @@ class HomeScreen extends Component {
             source={require('../imgs/faves.jpg')}
           />
         </View>
-        <Text style={styles.clickMe}>Click Me</Text>
-        <Text style={styles.friends}>To meet my other friends</Text>
+        <Text style={styles.clickMe}>Click Here!</Text>
+        <Text style={styles.friends}>To meet my other friends ^ ^</Text>
       </View>
       )
   }
