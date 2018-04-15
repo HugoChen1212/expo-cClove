@@ -50,7 +50,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
         Home: { screen: HomeStack,
           navigationOptions: {
             tabBarIcon: ({tintColor }) => <Icon name="ios-home" size={35} color={tintColor}/>
-          },
+          }
          },
         Search: { screen: SearchStack,
              navigationOptions: {
