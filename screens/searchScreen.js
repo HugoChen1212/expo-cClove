@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, Button } from 'react-native';
+import { View, Text, TextInput, Button, Image, ScrollView } from 'react-native';
 import axios from 'axios';
 import { Dropdown } from 'react-native-material-dropdown';
 
@@ -78,49 +78,58 @@ constructor(props){
 
 
     return (
-      <View style={styles.formContainer}>
+      <ScrollView>
+        <View style={styles.formContainer}>
 
-        <View style={styles.locationContainer}>
-          <Text style={styles.locationTitle}>Find Nearst Shelter</Text>
-          <TextInput textAlign="center"
-          selectionColor="#B8B8C4"
-          animationDuration={5}
-          maxLength={5}
-          placeholder="Enter You Zipcode" onChangeText={(location) => this.setState({location})} />
+         <View style={styles.locationContainer}>
+          <View style={styles.iconStyle}>
+             <Image
+              style={{width: 200, height: 200}}
+              source={require('../imgs/ccLoveLogo.jpeg')}
+            />
+          </View>
+            <View style={styles.findStyle}>
+              <Text style={styles.locationTitle}>Find Nearst Shelter</Text>
+              <TextInput textAlign="center"
+                  selectionColor="#B8B8C4"
+                  animationDuration={5}
+                  maxLength={5}
+                  style={styles.inputStyle}
+                  placeholder="Enter You Zipcode" onChangeText={(location) => this.setState({location})} />
+            </View>
           </View>
 
-            <View style={styles.dropdownStyle}>
-            <Dropdown
-            label='Select Animal'
-            data={animalData}
-            onChangeText={(value, index, data) => this.setState({animal:value})}
-            />
-            </View>
+              <Dropdown
+              label='Select Animal'
+              data={animalData}
+              onChangeText={(value, index, data) => this.setState({animal:value})}
+              />
 
-          <View style={styles.dropdownStyle}>
-           <Dropdown
-            label='Select Age'
-            data={ageData}
-            onChangeText={(value, index, data) => this.setState({age:value})}
-            />
-            </View>
 
-           <View style={styles.dropdownStyle}>
-           <Dropdown
-            label='Select Sex'
-            data={sexData}
-            onChangeText={(value, index, data) => this.setState({sex:value})}
-            />
-            </View>
+
+             <Dropdown
+              label='Select Age'
+              data={ageData}
+              onChangeText={(value, index, data) => this.setState({age:value})}
+              />
+
+
+               <Dropdown
+                label='Select Sex'
+                data={sexData}
+                onChangeText={(value, index, data) => this.setState({sex:value})}
+                />
 
             <View style={styles.buttonStyle}>
-              <Button title="Submit" color="#74F363" onPress={() => this.dogSearcher()} />
+                <Button title="Submit" color="#74F363" onPress={() => this.dogSearcher()} />
             </View>
 
             <View style={styles.buttonStyle}>
                 <Button title="View Favorites" color="#74F363" onPress={() => Actions.favorites()}/>
-              </View>
-      </View>
+            </View>
+        </View>
+
+      </ScrollView>
       )
   }
 }
@@ -134,12 +143,13 @@ const styles = {
     paddingRight: 15
   },
   locationContainer: {
-    marginTop: 100,
     alignItems: 'center'
   },
   locationTitle: {
-    fontSize: 18,
-    color: '#BBB193'
+    fontSize: 22,
+    color: '#BBB193',
+    marginBottom:6,
+    marginTop: 10
   },
   buttonStyle: {
     borderWidth: 2,
@@ -149,9 +159,17 @@ const styles = {
     borderRadius: 5,
     marginTop: '2%'
   },
-  dropdownStyle: {
-    borderBottomColor: '#e6e6e6',
-    borderBottomWidth: 2
+  iconStyle: {
+    marginTop: 10,
+    marginBottom: 10
+  },
+  inputStyle: {
+    height: 30,
+    borderWidth: 1,
+    borderColor: 'gray'
+  },
+  textStyle: {
+    height: 50
   }
   }
 
