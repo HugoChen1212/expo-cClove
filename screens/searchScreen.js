@@ -11,7 +11,8 @@ constructor(props){
     super(props);
     this.state = {
       animal: 'dog',
-      sex: '',
+      sex: 'M',
+      age: 'Young',
       location: '',
       format: 'json',
       results: []
