@@ -38,7 +38,7 @@ class ListScreen extends Component {
 
       detailsHandeler = () => {
           console.log(pet);
-        navigate.navigate('Favor');
+        navigate.navigate('ListDetails');
         }
 
     return (
@@ -59,7 +59,7 @@ class ListScreen extends Component {
             backgroundColor='#03A9F4'
             title='Details'
             style={styles.buttonStyle}
-            onPress={this.detailsHandeler}
+            onPress={detailsHandeler}
           />
           <Button
             icon={{name: 'thumbsup', type: 'octicon'}}

@@ -21,12 +21,15 @@ class FavorScreen extends Component {
       />}
 }
 
+  detailsHandeler = () => {
+         this.props.navigation.navigate('ListDetails');
+        }
+
 
   renderLikedPet(){
     console.log(this.props.likes);
 
       return this.props.likes.map(pet => {
-
         let petName = pet.name.$t;
         let id = pet.id.$t
         let petAge = pet.age.$t;
@@ -39,20 +42,27 @@ class FavorScreen extends Component {
 
         return(
           <View key={id} style={{ width: SCREEN_WIDTH}}>
-          <Card
-          title={petName}
-          image={{ uri:petUri }}
-        >
-         <View style={styles.row}>
-          <Text style={styles.textSize}>Age: {petAge}</Text>
-          <Text style={styles.textSize}>Sex: {petSex}</Text>
-          <Text style={styles.textSize}>Size: {petSize}</Text>
-          </View>
-          <View style={styles.row}>
+            <Card
+              title={petName}
+              image={{ uri:petUri }}
+          >
+               <View style={styles.row}>
+                <Text style={styles.textSize}>Age: {petAge}</Text>
+                <Text style={styles.textSize}>Sex: {petSex}</Text>
+                <Text style={styles.textSize}>Size: {petSize}</Text>
+                </View>
+                <View style={styles.row}>
 
-          </View>
+                </View>
 
-        </Card>
+                <Button
+                icon={{name: 'zoom-in', type: 'foundation'}}
+                backgroundColor='#03A9F4'
+                title='Details'
+                onPress={this.detailsHandeler}
+                />
+
+          </Card>
         </View>
 
           )
