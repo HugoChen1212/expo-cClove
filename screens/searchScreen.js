@@ -80,15 +80,26 @@ constructor(props){
 
 
     return (
-        <View style={styles.formContainer}>
+      <View style={styles.formContainer}>
+        <View style={styles.iconContainer}>
 
-         <View style={styles.locationContainer}>
-          <View style={styles.iconStyle}>
+           <View style={styles.iconStyle}>
              <Image
               style={{width: 200, height: 200}}
               source={require('../imgs/ccLoveLogo.jpeg')}
             />
-          </View>
+           </View>
+
+           <View style={styles.iconStyle}>
+             <Image
+              style={{width: 50, height: 50}}
+              source={require('../imgs/pup.png')}
+            />
+           </View>
+
+         </View>
+
+          <View style={styles.locationContainer}>
             <View style={styles.findStyle}>
               <Text style={styles.locationTitle}>Find Nearst Shelter</Text>
               <TextInput textAlign="center"
@@ -180,6 +191,11 @@ const styles = {
   dropdownStyle: {
     borderBottomColor: '#e6e6e6',
     borderBottomWidth: 2
+  },
+  iconContainer:{
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
   }
   }
 
