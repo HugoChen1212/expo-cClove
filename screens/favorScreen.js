@@ -26,9 +26,7 @@ class FavorScreen extends Component {
 
 
 
-  detailsHandeler = () => {
-         this.props.navigation.navigate('ListDetails');
-        }
+
 
 
   renderLikedPet(){
@@ -44,6 +42,12 @@ class FavorScreen extends Component {
         let petUri = JSON.stringify(Media)!=='{}' ?
          pet.media.photos.photo[3].$t :
         'http://photos.petfinder.com/photos/pets/33754516/1/?bust=1447200763&width=500&-x.jpg'
+
+        detailsHandeler = () => {
+          favorDetail = Object.assign(this.props.favorDetail, pet);
+         this.props.navigation.navigate('FavorDetail');
+
+        }
 
         return(
           <View key={id} style={{ width: SCREEN_WIDTH}}>
@@ -64,7 +68,7 @@ class FavorScreen extends Component {
                 icon={{name: 'zoom-in', type: 'foundation'}}
                 backgroundColor='#03A9F4'
                 title='Details'
-                onPress={this.detailsHandeler}
+                onPress={detailsHandeler}
                 />
 
           </Card>
@@ -91,7 +95,8 @@ class FavorScreen extends Component {
 
 const petStateToProps = state => {
   return {
-    likes: state.likes
+    likes: state.likes,
+    favorDetail: state.favorDetail
   }
 }
 
