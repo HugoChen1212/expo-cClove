@@ -1,7 +1,8 @@
 
 const initialState = {
   likes: [],
-  detail: {}
+  detail: {},
+  favorDetail: {}
 }
 
 export const petReducer = (state = initialState, action) => {
@@ -16,7 +17,14 @@ export const petReducer = (state = initialState, action) => {
       ...state,
      detail: state.detail
     }
+}
+  if (action.type === 'favor_detail'){
+    return {
+      ...state,
+     favorDetail: state.favorDetail
+    }
   }
+
 
   return state;
 }

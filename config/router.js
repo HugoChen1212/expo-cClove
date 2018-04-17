@@ -9,6 +9,7 @@ import Setting from '../screens/settingScreen';
 import Auth from '../screens/authScreen';
 import List from '../screens/listScreen';
 import ListDetails from '../screens/listDetailsScreen';
+import FavorDetails from '../screens/favorDetailsScreen';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 
@@ -21,7 +22,8 @@ import Icon from 'react-native-vector-icons/Ionicons';
          //  title: 'Favor'}
       },
 
-      Setting: {screen: Setting }
+      Setting: {screen: Setting },
+      FavorDetail: {screen: FavorDetails}
   });
 
   export const HomeStack = StackNavigator ({
