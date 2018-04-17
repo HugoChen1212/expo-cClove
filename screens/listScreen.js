@@ -25,8 +25,9 @@ class ListScreen extends Component {
 
       let Media = pet.media;
       let petUri = JSON.stringify(Media)!=='{}' ?
-         pet.media.photos.photo[3].$t :
-        'http://photos.petfinder.com/photos/pets/33754516/1/?bust=1447200763&width=500&-x.jpg'
+         pet.media.photos.photo[3].$t : 'https://github.com/HugoChen1212/expo-cClove/blob/master/imgs/unknow.png?raw=true'
+
+         //'http://photos.petfinder.com/photos/pets/33754516/1/?bust=1447200763&width=500&-x.jpg'
 
         favorHandeler = () => {
          // console.log(pet);

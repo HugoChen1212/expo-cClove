@@ -27,7 +27,13 @@ import Icon from 'react-native-vector-icons/Ionicons';
   export const HomeStack = StackNavigator ({
     Home: {screen: Home,
       navigationOptions:{
-        title: 'Home'}
+        title: 'Home',
+        headerTintColor: 'black',
+        // headerStyle: {backgroundColor: 'rgba(52,52,52,0.8)', color:'white'},
+        // headerTitleStyle: {
+        //   fontSize: 20
+        // }
+      }
     }
   });
 
@@ -49,6 +55,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
       // screen: TabNavigator({
         Home: { screen: HomeStack,
           navigationOptions: {
+            headerStyle: {backgroundColor: 'black'},
             tabBarIcon: ({tintColor }) => <Icon name="ios-home" size={35} color={tintColor}/>
           }
          },
@@ -64,4 +71,21 @@ import Icon from 'react-native-vector-icons/Ionicons';
         }
      // })
   //}
-});
+},{
+    tabBarOptions: {
+      style: {
+        padding: 0,
+
+      },
+      tabStyle: {
+        marginTop: 5,
+
+      },
+      labelStyle: {
+        fontSize: 14,
+        height: 13,
+        fontWeight: 'bold'
+      }
+  }
+}
+);
