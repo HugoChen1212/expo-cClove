@@ -7,14 +7,6 @@ import { connect } from 'react-redux';
 
 class ListScreen extends Component {
 
-  // favorHandeler = (pet) => {
-  //     console.log(pet);
-  //     this.props.likes.push(pet);
-
-  //   this.props.navigation.navigate('Favor');
-  // }
-
-
 
     renderPet(pet, index, detailsHandeler, likes, navigate, detail) {
 
@@ -38,7 +30,9 @@ class ListScreen extends Component {
 
 
       detailsHandeler = () => {
-          console.log(pet);
+          //console.log(pet);
+          detail = Object.assign(detail, pet);
+          console.log(detail);
         navigate.navigate('ListDetails');
         }
 

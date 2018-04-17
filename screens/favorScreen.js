@@ -7,6 +7,9 @@ import { connect } from 'react-redux';
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 class FavorScreen extends Component {
+  constructor(props){
+    super(props)
+  }
 
 
   static navigationOptions = ({navigation}) => {
@@ -20,6 +23,8 @@ class FavorScreen extends Component {
         onPress={() => navigation.navigate('Setting')}
       />}
 }
+
+
 
   detailsHandeler = () => {
          this.props.navigation.navigate('ListDetails');
