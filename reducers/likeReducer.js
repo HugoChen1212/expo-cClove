@@ -13,6 +13,7 @@ export const petReducer = (state = initialState, action) => {
   }
   if (action.type === 'detail_pet'){
     return {
+      ...state,
      detail: state.detail
     }
   }
