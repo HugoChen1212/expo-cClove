@@ -2,14 +2,15 @@
 const initialState = {
   likes: [],
   detail: {},
-  favorDetail: {}
+  favorDetail: {},
+  like: []
 }
 
 export const petReducer = (state = initialState, action) => {
   if (action.type === 'like_pet'){
     return {
       ...state,
-     likes: state.likes
+     likes: state.likes.concat(action.pet)
     }
   }
   if (action.type === 'detail_pet'){

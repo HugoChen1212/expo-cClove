@@ -100,6 +100,8 @@ const petStateToProps = state => {
   }
 }
 
+
+
 // const styles = {
 //   italics: {
 //     fontStyle: 'italic'
