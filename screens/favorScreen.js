@@ -32,7 +32,7 @@ class FavorScreen extends Component {
   renderLikedPet(){
     console.log(this.props.likes);
 
-      return this.props.likes.map(pet => {
+      return this.props.likes.map((pet, index) => {
         let petName = pet.name.$t;
         let id = pet.id.$t
         let petAge = pet.age.$t;
@@ -49,6 +49,10 @@ class FavorScreen extends Component {
 
         }
 
+        deleteHandeler = () => {
+          this.props.onDeletePet(index)
+        }
+
         return(
           <View key={id} style={{ width: SCREEN_WIDTH}}>
             <Card
@@ -63,13 +67,21 @@ class FavorScreen extends Component {
                 <View style={styles.row}>
 
                 </View>
-
+                <View style={styles.row}>
                 <Button
                 icon={{name: 'zoom-in', type: 'foundation'}}
                 backgroundColor='#03A9F4'
                 title='Details'
                 onPress={detailsHandeler}
                 />
+
+                 <Button
+                icon={{name: 'trash', type: 'foundation'}}
+                backgroundColor='#03A9F4'
+                title='Delete'
+                onPress={deleteHandeler}
+                />
+                </View>
 
           </Card>
         </View>
@@ -93,26 +105,6 @@ class FavorScreen extends Component {
   }
 }
 
-const petStateToProps = state => {
-  return {
-    likes: state.likes,
-    favorDetail: state.favorDetail
-  }
-}
-
-
-
-// const styles = {
-//   italics: {
-//     fontStyle: 'italic'
-//   },
-//   detailWrapper: {
-//     marginBottom: 10,
-//     flexDirection: 'row',
-//     justifyContent: 'space-around'
-//   }
-
-// }
 
   const styles = {
     row: {
@@ -130,4 +122,18 @@ const petStateToProps = state => {
     }
   }
 
-export default connect(petStateToProps)(FavorScreen);
+  const petStateToProps = state => {
+  return {
+    likes: state.likes,
+    favorDetail: state.favorDetail
+  }
+}
+
+
+  const deleteDispatchToProps = dispatch => {
+    return {
+      onDeletePet: (index) => dispatch({type: 'delete_favor', index: index})
+    }
+}
+
+export default connect(petStateToProps, deleteDispatchToProps)(FavorScreen);

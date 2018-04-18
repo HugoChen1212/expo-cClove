@@ -26,6 +26,16 @@ export const petReducer = (state = initialState, action) => {
     }
   }
 
+  if (action.type === 'delete_favor'){
+      const index = action.index
+      const newArray = [...state.likes]
+      newArray.splice(index, 1);
+    return {
+      ...state,
+      likes: newArray
+    }
+  }
+
 
   return state;
 }
