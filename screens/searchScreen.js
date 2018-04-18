@@ -7,31 +7,28 @@ import { Dropdown } from 'react-native-material-dropdown';
 
 class SearchScreen extends Component {
 
-constructor(props){
-    super(props);
-    this.state = {
-      animal: 'dog',
-      sex: 'M',
-      age: 'Young',
-      location: '',
-      format: 'json',
-      results: []
-    };
-}
+    constructor(props){
+        super(props);
+        this.state = {
+          animal: 'dog',
+          sex: 'M',
+          age: 'Young',
+          location: '',
+          format: 'json',
+          results: []
+        };
+    }
 
-  favorites =()=> {
-      this.props.navigation.navigate('Favor');
-  }
+    favorites =()=> {
+        this.props.navigation.navigate('Favor');
+    }
 
 
    dogSearcher =() => {
     axios.get('http://api.petfinder.com/pet.find?key=dbeaf4be86fcf7cfe093d67eef6689b7&animal='+this.state.animal+'&location='+this.state.location+'&sex='+this.state.sex+'&format='+this.state.format).then( response => {
       this.setState({
         results: response.data.petfinder.pets
-      }
-      //,() => console.log(this.state.results)
-      );
-
+      });
       //console.log(response.data.petfinder.pets);
         this.onListHandeler();
 
@@ -40,48 +37,48 @@ constructor(props){
      });
   }
 
- onListHandeler = () => {
-    this.props.navigation.navigate('List', {results: this.state.results
-    });
-  }
+   onListHandeler = () => {
+      this.props.navigation.navigate('List', {results: this.state.results
+      });
+    }
 
-  render() {
+    render() {
 
-  let animalData = [{
-    value: 'dog',
-  }, {
-    value: 'cat',
-  }, {
-    value: 'bird'
-  }, {
-    value: 'horse'
-  },{
-    value: 'barnyard'
-  },{
-    value: 'reptile'
-  }
-  ];
+    let animalData = [{
+      value: 'dog',
+    }, {
+      value: 'cat',
+    }, {
+      value: 'bird'
+    }, {
+      value: 'horse'
+    },{
+      value: 'barnyard'
+    },{
+      value: 'reptile'
+    }
+    ];
 
 
-  let ageData = [{
-    value: 'Baby',
-  }, {
-    value: 'Young',
-  }, {
-    value: 'Adult'
-  }, {
-    value: 'Senior'
-  }];
+    let ageData = [{
+      value: 'Baby',
+    }, {
+      value: 'Young',
+    }, {
+      value: 'Adult'
+    }, {
+      value: 'Senior'
+    }];
 
-  let sexData = [{
-    value: 'F',
-  }, {
-    value: 'M'
-  }];
+    let sexData = [{
+      value: 'F',
+    }, {
+      value: 'M'
+    }];
 
 
     return (
-      <View style={styles.formContainer}>
+      <ScrollView style={styles.formContainer}>
         <View style={styles.iconContainer}>
 
            <View style={styles.iconStyle}>
@@ -113,29 +110,29 @@ constructor(props){
           </View>
 
         <View style={{marginBottom: 15}}>
-          <View style={styles.dropdownStyle}>
+
               <Dropdown
               label='Select Animal'
               data={animalData}
               onChangeText={(value, index, data) => this.setState({animal:value})}
               />
-          </View>
 
-          <View style={styles.dropdownStyle}>
+
+
              <Dropdown
               label='Select Age'
               data={ageData}
               onChangeText={(value, index, data) => this.setState({age:value})}
               />
-          </View>
 
-          <View style={styles.dropdownStyle}>
+
+
                <Dropdown
                 label='Select Sex'
                 data={sexData}
                 onChangeText={(value, index, data) => this.setState({sex:value})}
                 />
-          </View>
+
         </View>
 
         <View style={{marginBottom: 30}}>
@@ -147,7 +144,7 @@ constructor(props){
                 <Button title="View Favorites" color="#74F363" onPress={this.favorites}/>
             </View>
         </View>
-        </View>
+        </ScrollView>
       )
   }
 }

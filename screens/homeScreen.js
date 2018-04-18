@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Button, Image, Dimensions, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Button, Image, Dimensions, TouchableOpacity, ScrollView } from 'react-native';
 import HomeImgs from '../components/homePage/homeImg.js';
 import { MapView } from 'expo';
 
@@ -16,7 +16,7 @@ class HomeScreen extends Component {
 
   render() {
     return (
-      <View style={styles.homeContainer}>
+      <ScrollView style={styles.homeContainer}>
 
         <Text style={styles.title}>Miss Potato</Text>
 
@@ -49,7 +49,7 @@ class HomeScreen extends Component {
         </View>
         <Text style={styles.clickMe}>Click Here!</Text>
         <Text style={styles.friends}>To meet my other friends ^ ^</Text>
-      </View>
+      </ScrollView>
       )
   }
 }
