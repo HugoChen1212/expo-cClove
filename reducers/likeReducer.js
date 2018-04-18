@@ -6,25 +6,23 @@ const initialState = {
   like: []
 }
 
+
+export const onlyUnique=(value, index, self)=> {
+        return self.indexOf(value) === index;
+      }
+
+
 export const petReducer = (state = initialState, action) => {
+
   if (action.type === 'like_pet'){
+     const uniqueItem = state.likes.concat(action.pet).filter(onlyUnique);
+
     return {
       ...state,
-     likes: state.likes.concat(action.pet)
+     likes: uniqueItem
     }
   }
-  if (action.type === 'detail_pet'){
-    return {
-      ...state,
-     detail: state.detail
-    }
-}
-  if (action.type === 'favor_detail'){
-    return {
-      ...state,
-     favorDetail: state.favorDetail
-    }
-  }
+
 
   if (action.type === 'delete_favor'){
       const index = action.index
@@ -39,3 +37,4 @@ export const petReducer = (state = initialState, action) => {
 
   return state;
 }
+

@@ -25,7 +25,7 @@ class ListDetailsScreen extends Component {
       let zip = pet.contact.zip.$t;
       let Media = pet.media;
       let petUri = JSON.stringify(Media)!=='{}' ?
-         pet.media.photos.photo[3].$t : 'https://github.com/HugoChen1212/expo-cClove/blob/master/imgs/unknow.png?raw=true'
+         pet.media.photos.photo[3].$t : 'https://ibb.co/iWC3NS'
 
     return (
            <ScrollView>
