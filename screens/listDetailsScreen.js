@@ -9,7 +9,7 @@ class ListDetailsScreen extends Component {
 
 
   render() {
-    console.log(this.props.detail)
+    //console.log(this.props.detail)
       let pet = this.props.detail;
       let petName = pet.name.$t;
       let petAge = pet.age.$t;
@@ -25,7 +25,7 @@ class ListDetailsScreen extends Component {
       let zip = pet.contact.zip.$t;
       let Media = pet.media;
       let petUri = JSON.stringify(Media)!=='{}' ?
-         pet.media.photos.photo[3].$t : 'https://ibb.co/iWC3NS'
+         pet.media.photos.photo[3].$t : 'http://www.enxmag.com/twii/wp-content/uploads/2014/11/question-marks22.jpg'
 
     return (
            <ScrollView>
