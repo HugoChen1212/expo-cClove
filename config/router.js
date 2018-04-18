@@ -5,7 +5,6 @@ import Home from '../screens/homeScreen';
 import SearchScreen from '../screens/searchScreen';
 import Favor from '../screens/favorScreen';
 import Welcome from '../screens/welcomeScreen';
-import Setting from '../screens/settingScreen';
 import Auth from '../screens/authScreen';
 import List from '../screens/listScreen';
 import ListDetails from '../screens/listDetailsScreen';
@@ -21,8 +20,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
          // navigationOptions:{
          //  title: 'Favor'}
       },
-
-      Setting: {screen: Setting },
       FavorDetail: {screen: FavorDetails}
   });
 
