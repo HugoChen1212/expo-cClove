@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 class ListScreen extends Component {
 
 
-    renderPet(pet, index, detailsHandeler, likes, navigate, detail) {
+    renderPet(pet, index, detailsHandeler, onLikePet, navigate, detail) {
 
       let petName = pet.name.$t;
       let petAge = pet.age.$t;
@@ -23,8 +23,8 @@ class ListScreen extends Component {
 
         favorHandeler = () => {
          // console.log(pet);
-          likes.push(pet);
-          console.log(likes);
+         //like.push(pet);
+         onLikePet(pet);
           navigate.navigate('Favor');
         }
 
@@ -76,18 +76,16 @@ class ListScreen extends Component {
   render() {
 
    let pets = this.props.navigation.state.params.results.pet;
-   // console.log(pets);
-   //  console.log(pets[1].media.photos.photo[2].$t);
-
 
     return (
       <ScrollView>
        <MyCard pets={pets}
         renderPet={this.renderPet}
         detailsHandeler={this.detailsHandeler}
-        likes={this.props.likes}
+        //like={this.props.like}
         navigate={this.props.navigation}
         detail={this.props.detail}
+        onLikePet={this.props.onLikePet}
         />
       </ScrollView>
       )
@@ -116,9 +114,15 @@ class ListScreen extends Component {
 
   const petStateToProps = state => {
   return {
-    likes: state.likes,
+    like: state.like,
     detail: state.detail
   }
 }
 
-export default connect(petStateToProps)(ListScreen);
+const petDispatchToProps = dispatch => {
+    return {
+      onLikePet: (pet) => dispatch({type: 'like_pet', pet: pet})
+    }
+}
+
+export default connect(petStateToProps, petDispatchToProps)(ListScreen);
