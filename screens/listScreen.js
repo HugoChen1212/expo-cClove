@@ -17,7 +17,7 @@ class ListScreen extends Component {
 
       let Media = pet.media;
       let petUri = JSON.stringify(Media)!=='{}' ?
-         pet.media.photos.photo[3].$t : 'https://ibb.co/iWC3NS'
+         pet.media.photos.photo[3].$t : 'http://www.enxmag.com/twii/wp-content/uploads/2014/11/question-marks22.jpg'
 
          //'http://photos.petfinder.com/photos/pets/33754516/1/?bust=1447200763&width=500&-x.jpg'
 

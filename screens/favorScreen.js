@@ -11,24 +11,6 @@ class FavorScreen extends Component {
     super(props)
   }
 
-
-  static navigationOptions = ({navigation}) => {
-    return {
-    title: 'Favorites',
-      headerRight:
-      <Button
-        title="Setting"
-        backgroundColor="rgba(0,0,0,0)"
-        color="rgba(0,122,255,1)"
-        onPress={() => navigation.navigate('Setting')}
-      />}
-}
-
-
-
-
-
-
   renderLikedPet(){
     console.log(this.props.likes);
 
