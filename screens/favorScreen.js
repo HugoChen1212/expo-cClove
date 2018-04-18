@@ -7,13 +7,9 @@ import { connect } from 'react-redux';
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 class FavorScreen extends Component {
-  constructor(props){
-    super(props)
-  }
 
   renderLikedPet(){
-    console.log(this.props.likes);
-
+    //console.log(this.props.likes);
       return this.props.likes.map((pet, index) => {
         let petName = pet.name.$t;
         let id = pet.id.$t
@@ -23,7 +19,7 @@ class FavorScreen extends Component {
         let Media = pet.media;
         let petUri = JSON.stringify(Media)!=='{}' ?
          pet.media.photos.photo[3].$t :
-        'https://ibb.co/iWC3NS'
+        'http://www.enxmag.com/twii/wp-content/uploads/2014/11/question-marks22.jpg'
 
         detailsHandeler = () => {
           favorDetail = Object.assign(this.props.favorDetail, pet);

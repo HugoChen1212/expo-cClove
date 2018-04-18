@@ -22,17 +22,14 @@ class ListScreen extends Component {
          //'http://photos.petfinder.com/photos/pets/33754516/1/?bust=1447200763&width=500&-x.jpg'
 
         favorHandeler = () => {
-         // console.log(pet);
-         //like.push(pet);
          onLikePet(pet);
           navigate.navigate('Favor');
         }
 
 
       detailsHandeler = () => {
-          //console.log(pet);
           detail = Object.assign(detail, pet);
-          console.log(detail);
+          //console.log(detail);
         navigate.navigate('ListDetails');
         }
 
