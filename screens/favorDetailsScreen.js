@@ -24,8 +24,11 @@ class ListDetailsScreen extends Component {
       let state = pet.contact.state.$t;
       let zip = pet.contact.zip.$t;
       let Media = pet.media;
+      let address1 = pet.contact.address1;
       let petUri = JSON.stringify(Media)!=='{}' ?
-         pet.media.photos.photo[3].$t : 'http://www.enxmag.com/twii/wp-content/uploads/2014/11/question-marks22.jpg'
+         pet.media.photos.photo[3].$t : 'http://www.enxmag.com/twii/wp-content/uploads/2014/11/question-marks22.jpg';
+      let address = JSON.stringify(address1)!=='{}' ?
+         pet.contact.address1.$t : 'N/A';
 
     return (
            <ScrollView>
@@ -47,7 +50,9 @@ class ListDetailsScreen extends Component {
           <View style={{marginBottom: 10}}>
             <Text style={styles.contentText}>Phone: {phone}</Text>
             <Text style={styles.contentText}>Email: {email}</Text>
-            <Text style={styles.contentText}>Address: {city}, {state}, {zip}</Text>
+            <Text style={styles.contentText}>Address:</Text>
+            <Text style={styles.contentText}>{address}</Text>
+            <Text style={styles.contentText}>{city}, {state}, {zip}</Text>
         </View>
         </Card>
           </ScrollView>
